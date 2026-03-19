@@ -15,14 +15,15 @@ export const TITLE_ART = [
 // - flat top of head (underscores)
 // - upper sides of head (/ \)
 // - wide body with eyes centered inside (( • • ))
-// - bottom of head (\_____/)
-// - five legs (/ | | | \)
+// - bottom of head (\_______/)
+// - five legs splayed wider than the head (/ | | | \)
+// All rows padded to 17 chars for consistent SVG rendering.
 export const PENTAPUS_ART = [
-  "    _____    ",
-  "   /     \\   ",
-  "  (  • •  )  ",
-  "   \\_____/   ",
-  "  / | | | \\  ",
+  "   _______   ",
+  "  /       \\  ",
+  " (  •   •  ) ",
+  "  \\_______/  ",
+  " / | | | | \\ ",
 ];
 
 export const TAGLINE_ART = [
