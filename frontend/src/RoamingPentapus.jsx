@@ -12,10 +12,10 @@ function getWaypoints() {
   const w = window.innerWidth;
   const h = window.innerHeight;
   return [
-    { x: w * 0.1, y: h * 0.1 },
-    { x: w * 0.9, y: h * 0.1 },
-    { x: w * 0.9, y: h * 0.9 },
-    { x: w * 0.1, y: h * 0.9 },
+    { x: w * 0.2, y: h * 0.25 },
+    { x: w * 0.8, y: h * 0.25 },
+    { x: w * 0.8, y: h * 0.75 },
+    { x: w * 0.2, y: h * 0.75 },
   ];
 }
 
