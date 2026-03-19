@@ -23,7 +23,7 @@ export const PENTAPUS_ART = [
   "  /       \\  ",
   " (  •   •  ) ",
   "  \\_______/  ",
-  " / | | | | \\ ",
+  " / | | | \\  ",
 ];
 
 export const TAGLINE_ART = [
