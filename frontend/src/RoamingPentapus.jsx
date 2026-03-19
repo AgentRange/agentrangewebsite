@@ -116,8 +116,8 @@ export default function RoamingPentapus() {
     }
   }
 
-  // 60% of static size
-  const scale = 0.6;
+  // 80% of static size (100% bigger than original 0.4)
+  const scale = 0.8;
   const displayW = artW * scale;
   const displayH = artH * scale;
 
