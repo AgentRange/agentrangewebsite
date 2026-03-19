@@ -1,13 +1,12 @@
 import AsciiSvg from "./AsciiSvg";
 import RoamingPentapus from "./RoamingPentapus";
-import { TITLE_ART, PENTAPUS_ART, TAGLINE_ART } from "./asciiData";
+import { TITLE_ART, TAGLINE_ART } from "./asciiData";
 
 function App() {
   return (
     <div className="app">
       <RoamingPentapus />
       <AsciiSvg lines={TITLE_ART} />
-      <AsciiSvg lines={PENTAPUS_ART} />
       <AsciiSvg lines={TAGLINE_ART} rainbow={false} />
       <a
         href="mailto:info@agentrange.com"
