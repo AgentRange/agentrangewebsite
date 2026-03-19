@@ -108,6 +108,7 @@ export default function RoamingPentapus() {
           fill={`hsl(${hue}, 100%, 65%)`}
           fontFamily="monospace"
           fontSize="16"
+          fontWeight="bold"
         >
           {ch}
         </text>
@@ -115,8 +116,8 @@ export default function RoamingPentapus() {
     }
   }
 
-  // 40% of static size
-  const scale = 0.4;
+  // 60% of static size
+  const scale = 0.6;
   const displayW = artW * scale;
   const displayH = artH * scale;
 
