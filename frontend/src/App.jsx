@@ -7,7 +7,7 @@ function App() {
     <div className="app">
       <RoamingPentapus />
       <AsciiSvg lines={TITLE_ART} />
-      <AsciiSvg lines={TAGLINE_ART} rainbow={false} />
+      <AsciiSvg lines={TAGLINE_ART} rainbow={false} maxWidth={480} />
       <a
         href="mailto:info@agentrange.com"
         style={{

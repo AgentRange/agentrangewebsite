@@ -5,7 +5,7 @@ function charToHue(colIndex, totalCols) {
   return (colIndex / totalCols) * 360;
 }
 
-export default function AsciiSvg({ lines, rainbow = true, className = "" }) {
+export default function AsciiSvg({ lines, rainbow = true, className = "", maxWidth = 960 }) {
   const rows = lines.length;
   const cols = Math.max(...lines.map((l) => l.length));
   const width = cols * CELL_W;
@@ -37,7 +37,7 @@ export default function AsciiSvg({ lines, rainbow = true, className = "" }) {
     <svg
       className={className}
       viewBox={`0 0 ${width} ${height}`}
-      style={{ width: "100%", maxWidth: 960 }}
+      style={{ width: "100%", maxWidth }}
       xmlns="http://www.w3.org/2000/svg"
     >
       {chars}
