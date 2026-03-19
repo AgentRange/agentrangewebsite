@@ -8,7 +8,7 @@ function App() {
       <RoamingPentapus />
       <AsciiSvg lines={TITLE_ART} />
       <AsciiSvg lines={TAGLINE_ART} rainbow={false} maxWidth={480} className="tagline" />
-      <a href="mailto:info@agentrange.com" style={{ textDecoration: "none" }}>
+      <a href="mailto:info@agentrange.com" style={{ textDecoration: "none", marginTop: "1.5rem" }}>
         <AsciiSvg lines={EMAIL_ART} rainbow={false} maxWidth={320} />
       </a>
     </div>
