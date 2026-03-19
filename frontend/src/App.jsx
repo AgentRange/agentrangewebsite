@@ -1,6 +1,6 @@
 import AsciiSvg from "./AsciiSvg";
 import RoamingPentapus from "./RoamingPentapus";
-import { TITLE_ART, TAGLINE_ART } from "./asciiData";
+import { TITLE_ART, TAGLINE_ART, EMAIL_ART } from "./asciiData";
 
 function App() {
   return (
@@ -8,16 +8,8 @@ function App() {
       <RoamingPentapus />
       <AsciiSvg lines={TITLE_ART} />
       <AsciiSvg lines={TAGLINE_ART} rainbow={false} maxWidth={480} className="tagline" />
-      <a
-        href="mailto:info@agentrange.com"
-        style={{
-          color: "#aaa",
-          marginTop: "1.5rem",
-          fontSize: "1rem",
-          textDecoration: "none",
-        }}
-      >
-        info@agentrange.com
+      <a href="mailto:info@agentrange.com" style={{ textDecoration: "none" }}>
+        <AsciiSvg lines={EMAIL_ART} rainbow={false} maxWidth={320} />
       </a>
     </div>
   );
