@@ -27,7 +27,7 @@ export const PENTAPUS_ART = [
 ];
 
 export const TAGLINE_ART = [
-  "  a range of agents",
+  "  we build a range of agents",
 ];
 
 export const EMAIL_ART = [
