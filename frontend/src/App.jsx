@@ -22,7 +22,7 @@ function App() {
           fontSize: "0.75rem",
         }}
       >
-        <a href="/privacy.html" style={{ color: "#666", textDecoration: "none" }}>
+        <a href="/privacy" style={{ color: "#666", textDecoration: "none" }}>
           privacy policy
         </a>
       </footer>
