@@ -19,7 +19,7 @@ There is no backend. The site is 100% static: everything it serves comes out of
 
 ## Local development
 
-Requires Node **24.21.0** (see [Node version](#node-version)).
+Requires Node **22.16.0** or newer (see [Node version](#node-version)).
 
 ```bash
 cd frontend
@@ -57,7 +57,7 @@ Enter these settings in the Cloudflare dashboard (Workers & Pages → the projec
 | **Root directory** | **`frontend`** |
 | Build command | `npm ci && npm run build` |
 | Build output directory | `dist` |
-| Node version | `24.21.0`, from `.node-version` |
+| Node version | `22.16.0`, from `.node-version` |
 
 Two of those are easy to get wrong:
 
@@ -79,19 +79,25 @@ resolving fresh versions.
 
 ### Node version
 
-Pinned to **24.21.0** — the Active LTS line — by `.node-version`, which
-Cloudflare Pages reads to choose the Node in its build image. Pinning it means a
-Pages build-image update cannot change the Node the site is built with without
-somebody editing this repo.
+Pinned to **22.16.0** by `.node-version`, which Cloudflare Pages reads to choose
+the Node in its build image. Pinning it means a Pages build-image update cannot
+change the Node the site is built with without somebody editing this repo.
+
+**Pin only a version the build image already carries.** The image installs Node
+through asdf/node-build from definitions baked in when the image was built, and
+it cannot reach GitHub to fetch newer ones. An earlier pin of `24.21.0` failed
+every build with `node-build: definition not found: 24.21.0`. 22.16.0 is the
+version the image ships by default, so it always resolves. Before raising this
+pin, push the change to a branch and confirm the preview deployment builds.
 
 The file is committed at both the repo root and in `frontend/` deliberately.
 Cloudflare's documented lookup is the project root, but this project sets a
 custom root directory, and a failed production deploy is a bad way to discover
 which of the two it actually consults. Keep the two files in step.
 
-`frontend/package.json` carries a matching `engines` range so a local install on
-the wrong Node major warns. It only warns — `engine-strict` is not set — so it
-will not block anyone mid-task.
+`frontend/package.json` carries a matching `engines` range (`>=22.16.0`) so a
+local install on an older Node warns. It only warns — `engine-strict` is not
+set — so it will not block anyone mid-task.
 
 ### Routing
 
