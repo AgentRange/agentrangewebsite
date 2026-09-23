@@ -2,13 +2,14 @@
 
 The Agent Range marketing site — a single-page React app (Vite 8, React 19)
 that renders the wordmark, tagline and contact address as animated ASCII art on
-an SVG character grid, plus one plain static page for the privacy policy.
+an SVG character grid, plus two plain static pages — the privacy policy and a
+404.
 
 ```
 frontend/          the app (Vite)
   src/             React components + the ASCII art data
   public/          files copied verbatim into the build: privacy.html,
-                   favicon.svg, icons.svg, pentapus.ico
+                   404.html, favicon.svg, icons.svg, pentapus.ico
 docs/superpowers/  the original design spec and build plan (historical —
                    they describe a Flask host that no longer exists)
 ```
@@ -35,7 +36,8 @@ npm run preview    # serve the built frontend/dist, as production will
 ```
 
 `npm run preview` is the way to check a production build locally. It serves the
-real build output — including `privacy.html` and the hashed asset files — rather
+real build output — including `privacy.html`, `404.html` and the hashed asset
+files — rather
 than the dev server's on-the-fly transforms, so it is what to use before
 shipping anything that touches the build.
 
@@ -98,16 +100,22 @@ will not block anyone mid-task.
 The app does not use client-side routing. There is no router dependency
 (`package.json` lists only `react` and `react-dom`) and `src/App.jsx` renders a
 fixed tree with no route matching. The only navigation away from `/` is the
-footer link to `/privacy.html`, which is a real file in `frontend/public/` and a
-full page load.
+footer link to `/privacy`, which is a full page load of the real file
+`frontend/public/privacy.html`.
+
+Pages strips the `.html` extension and serves that file at `/privacy`, so
+requesting `/privacy.html` directly answers `308 → /privacy`. The footer links
+straight at `/privacy` to skip that hop; old links to `/privacy.html` keep
+working through the redirect.
 
 A `_redirects` file containing `/* /index.html 200` — the usual Vite-on-Pages
 reflex — would be actively harmful here: it would shadow `privacy.html` and
-serve the React app in its place.
+serve the React app in its place. Do not add one.
 
-Unknown paths therefore return Cloudflare's default 404. If a branded 404 is
-ever wanted, add `frontend/public/404.html`; Pages serves it automatically and
-it does not affect `privacy.html`.
+Unknown paths are served `frontend/public/404.html` with a real HTTP 404 status.
+Pages picks that file up automatically — it needs no configuration and does not
+affect `privacy.html`. It is a hand-written static page: no build step, no
+external requests.
 
 ### Asset paths
 
